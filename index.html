@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <title>Using Vue To Display Age</title>
+    
+</head>
+<body>
+
+   <div id="hatem-app">
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+     
+        <legend> Show Age in Days and Months</legend>
+    
+        <div class="form-group">
+            <label for="">Enter your Age :</label>
+            <input v-model="age"  type="number" class="form-control" id="" placeholder="Age">
+            
+        </div>
+        <button @click="showAge()" class="btn btn-primary">show</button>
+    
+       
+    
+        
+    
+    <hr>
+    <div class="form-group">
+        <label for="">Your Age in days : {{days}}</label><br>
+        <label for="">Your Age in months : {{months}}</label>
+        
+    </div>
+        </div> 
+
+   </div>
+    
+    
+   
+</body>
+<script src="js/vue.min.js"></script>
+<script>
+    var vm=new Vue({
+        el:'#hatem-app',
+        data:{
+       days:'',
+       months:'',
+       age:''
+        },
+        methods:{
+            showAge:function(){
+                this.days=this.age*365;
+                this.months=this.age*12;
+            }
+        }
+    });
+
+</script>
+</html>
